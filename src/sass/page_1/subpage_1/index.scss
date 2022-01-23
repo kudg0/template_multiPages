@@ -22,12 +22,6 @@ body {
   backdrop-filter: blur(5px);
 }
 
-// @media (min-width: 649px) {
-//   @import 'content/preloader';
-
-//   @import 'content/header';
-// }
-
 @media (max-width: 650px) {
   body {
     background-attachment: local;
