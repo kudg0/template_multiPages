@@ -1,4 +1,5 @@
 # Сборка для верстки
+![alt text](https://badgen.net/github/release/kudg0/template_multiPages "Releases")
 
 ## Подготовка к работе
 
