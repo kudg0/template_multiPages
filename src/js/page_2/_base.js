@@ -1,6 +1,3 @@
-//= include 'global/libs/zenscroll.js'
-//= include 'global/libs/parallax.min.js'
-
 //= include 'global/helpers/deviceType.js'
 
 //= include 'global/helpers/getCoords.js'
