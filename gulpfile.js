@@ -247,7 +247,7 @@ function htmlProcess_page_2() {
  */
 function imgProcess_global() {
   return gulp
-    .src(src.img.global)
+    .src(src.img.global + '**/*')
     .pipe(changed(dist.img.global))
     .pipe(gulp.dest(dist.img.global));
 }
@@ -257,7 +257,7 @@ function imgProcess_global() {
  */
 function imgProcess_main() {
   return gulp
-    .src(src.img.main)
+    .src(src.img.main + '**/*')
     .pipe(changed(dist.img.main))
     .pipe(gulp.dest(dist.img.main));
 }
@@ -267,7 +267,7 @@ function imgProcess_main() {
  */
 function imgProcess_page_1() {
   return gulp
-    .src(src.img.page_1)
+    .src(src.img.page_1 + '**/*')
     .pipe(changed(dist.img.page_1))
     .pipe(gulp.dest(dist.img.page_1));
 }
@@ -277,7 +277,7 @@ function imgProcess_page_1() {
  */
 function imgProcess_page_2() {
   return gulp
-    .src(src.img.page_2)
+    .src(src.img.page_2 + '**/*')
     .pipe(changed(dist.img.page_2))
     .pipe(gulp.dest(dist.img.page_2));
 }
