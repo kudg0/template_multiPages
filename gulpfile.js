@@ -283,6 +283,16 @@ function imgProcess_page_2() {
 }
 
 /**
+ * Склейка и обработка scss файлов (Либы)
+ * @returns {*}
+ */
+function scssProcess_libs() {
+  return gulp
+    .src(paths.src + 'sass/libs/**/*')
+    .pipe(changed(paths.dist + 'css/libs/'))
+    .pipe(gulp.dest(paths.dist + 'css/libs/'));
+}
+/**
  * Склейка и обработка scss файлов (Главная страница)
  * @returns {*}
  */
@@ -334,9 +344,9 @@ function scssProcess_page_2() {
  */
 function jsProcess_libs() {
   return gulp
-    .src('./src/js/libs/*')
-    .pipe(changed('./public/js/libs/'))
-    .pipe(gulp.dest('./public/js/libs/'));
+    .src(paths.src + 'js/libs/*')
+    .pipe(changed(paths.dist + 'js/libs/'))
+    .pipe(gulp.dest(paths.dist + 'js/libs/'));
 }
 /**
  * Работа с пользовательским js (Главная страница)
@@ -419,7 +429,7 @@ function inlineSource() {
  */
 function watchFiles() {
   gulp.watch(
-    ['./src/pages/**/*.*'],
+    paths.src + 'pages/**/*.*',
     gulp.series(
       htmlProcess_main,
       htmlProcess_page_1,
@@ -439,17 +449,18 @@ function watchFiles() {
   );
 
   gulp.watch(
-    './src/sass' + '/**/*.*',
+    paths.src + 'sass/' + '**/*.*',
     gulp.series(
       scssProcess_main,
       scssProcess_page_1,
       scssProcess_page_2,
+      scssProcess_libs,
       browserSyncReload,
     ),
   );
 
   gulp.watch(
-    './src/js' + '/**/*.*',
+    paths.src + 'js/' + '**/*.*',
     gulp.series(
       jsProcess_main,
       jsProcess_page_1,
@@ -460,7 +471,7 @@ function watchFiles() {
   );
 
   gulp.watch(
-    './src/img' + '/**/*.*',
+    paths.src + 'img/' + '**/*.*',
     gulp.series(
       imgProcess_global,
       imgProcess_main,
@@ -489,6 +500,7 @@ const build = gulp.series(
     scssProcess_main,
     scssProcess_page_1,
     scssProcess_page_2,
+    scssProcess_libs,
 
     imgProcess_global,
     imgProcess_main,
