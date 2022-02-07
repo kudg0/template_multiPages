@@ -413,7 +413,7 @@ function jsProcess_page_2() {
 function inlineSource() {
   if (arg.production === 'true') {
     return gulp
-      .src(dist.html.main + '**/index.html')
+      .src(paths.dist + '**/index.html')
       .pipe(
         inlinesource({
           compress: false,
